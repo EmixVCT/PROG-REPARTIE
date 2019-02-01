@@ -1,5 +1,6 @@
 package defaut;
 import java.awt.*;
+
 import javax.swing.*;
 
 class UneFenetre extends JFrame {
@@ -11,11 +12,16 @@ class UneFenetre extends JFrame {
 		
 		Container leConteneur = getContentPane();
 		
-		sonMobile = new UnMobile(1200,650);
+		sonMobile = new UnMobile(LARG,HAUT);
 		leConteneur.add(sonMobile);
 		
 		Thread laThread = new Thread(sonMobile);
 		laThread.start();
+		
+    	this.setResizable(false);
+    	this.setSize(new Dimension(LARG, HAUT));
+    	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	this.setVisible(true);
 
 		
     }

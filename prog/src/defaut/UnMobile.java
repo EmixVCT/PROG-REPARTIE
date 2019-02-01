@@ -5,8 +5,10 @@ import javax.swing.*;
 class UnMobile extends JPanel implements Runnable{
 	
     int saLargeur, saHauteur, sonDebDessin;
-    final int sonPas = 10, sonTemps=40, sonCote=40;
-    
+    final int sonTemps=40, sonCote=40;
+    int sonPas = 10;
+    boolean marche = true; 
+    		
     public UnMobile(int telleLargeur, int telleHauteur){
 		super();
 		saLargeur = telleLargeur;
@@ -15,7 +17,7 @@ class UnMobile extends JPanel implements Runnable{
     }
 
     public void run(){
-    	
+    	/*
 		for (sonDebDessin=0; sonDebDessin < saLargeur - sonPas; sonDebDessin += sonPas){
 			repaint();
 			try{Thread.sleep(sonTemps);}
@@ -28,9 +30,18 @@ class UnMobile extends JPanel implements Runnable{
 			try{Thread.sleep(sonTemps);}
 			catch (InterruptedException telleExcp)
 			    {telleExcp.printStackTrace();}
+		}*/
+		
+		while(marche){
+			if(sonDebDessin > saLargeur - sonCote || sonDebDessin < 0){
+				sonPas = -sonPas;
+			}
+			sonDebDessin += sonPas;
+			repaint();
+			try{Thread.sleep(sonTemps);}
+			catch (InterruptedException telleExcp)
+			    {telleExcp.printStackTrace();}
 		}
-		
-		
     }
 
     public void paintComponent(Graphics telCG){
