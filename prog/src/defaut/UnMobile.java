@@ -14,6 +14,7 @@ class UnMobile extends JPanel implements Runnable{
 		saLargeur = telleLargeur;
 		saHauteur = telleHauteur;
 		setSize(telleLargeur, telleHauteur);
+		
     }
 
     public void run(){
@@ -47,5 +48,13 @@ class UnMobile extends JPanel implements Runnable{
     public void paintComponent(Graphics telCG){
 		super.paintComponent(telCG);
 		telCG.fillRect(sonDebDessin, saHauteur/2, sonCote, sonCote);
+    }
+    
+    public void statusChange(){
+    	if (marche){
+    		marche = false;
+    	}else{
+    		marche = true;
+    	}
     }
 }
