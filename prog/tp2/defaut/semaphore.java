@@ -10,13 +10,13 @@ public abstract class semaphore {
     public synchronized void syncWait(){
 	try {
 	    while(valeur<=0){
-		wait();
+	    	wait();
         }
 	    valeur--;
 	} catch(InterruptedException e){}
     }
 
     public synchronized void syncSignal(){
-	if(++valeur > 0) notifyAll();
+    	if(++valeur > 0) notifyAll();
     }
 }

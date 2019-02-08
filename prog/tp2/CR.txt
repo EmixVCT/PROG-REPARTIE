@@ -1,4 +1,4 @@
-TP2
+TP2 - Maxime VINCENT
 
 
 On peut créée une classe qui extends de la classe Thread, cette classe aura obligatoirement 
@@ -6,7 +6,25 @@ une méthode run() pour préciser le code a executer au thread
 (comme les classes qui implement runnable).
 
 
+synchronized( Objet stactic obj ){ "section critique" } 
+- permet de synchronizer les threads (prend en parametre un objet static pour 
+	que tout les threads puissent le connaitre ) 
+
+une section critique est un partie du code ou s'exécute qu’un thread à la fois.Une section
+critique est utilisée lorsque plusieurs thread accède à une même ressource.
 
 
-.syncWait() par d'un nombre de ressource et décremente
-.synSignal() incremente le nombre de ressource
+Dans un classe sémaphore (2 méthodes et 1 champs):
+
+Champ int valeur 
+	- initialiser a 1 (permet de faire le verrou des threads)[0 à -infini] 
+	
+.syncWait() 
+	- tant que la valeur est inférieur a 0 appel la methode wait() puis décremente la valeur.
+
+.synSignal() 
+	- incremente la valeur si elle est supérieur a 0 envoie un signal au thread bloquer
+
+
+Pour syncroniser des threads on crée un objet static de classe sémaphore. 
+Puis on encadre la section critique avec les methodes syncWait() et synSignal() du sémaphore.

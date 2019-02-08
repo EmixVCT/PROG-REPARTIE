@@ -8,14 +8,14 @@ import javax.swing.*;
 
 class UneFenetre extends JFrame implements ActionListener{
 	
-	int NB_THREAD = 100;
+	int NB_THREAD = 40;
     int NB_COL = 2;
 
     Thread threads []= new Thread[NB_THREAD];
     JButton boutons []= new JButton[NB_THREAD];
     boolean status[] = new boolean[NB_THREAD];
     
-    private final int LARG=700, HAUT=400;
+    private final int LARG=700, HAUT=800;
     
     public UneFenetre(){
 		super("fenetre");
