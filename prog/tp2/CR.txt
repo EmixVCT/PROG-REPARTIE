@@ -1,0 +1,12 @@
+TP2
+
+
+On peut créée une classe qui extends de la classe Thread, cette classe aura obligatoirement 
+une méthode run() pour préciser le code a executer au thread 
+(comme les classes qui implement runnable).
+
+
+
+
+.syncWait() par d'un nombre de ressource et décremente
+.synSignal() incremente le nombre de ressource

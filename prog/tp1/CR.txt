@@ -1,0 +1,33 @@
+TP1 - MAXIME VINCENT
+
+
+
+Constructeur de la classe Thread :
+
+	Thread() - Créer un nouveau thread
+	
+	Thread(Objet Runnable) - Créer un nouveau thread en lui précisent le code a executer
+	
+	Thread(String name) - Créer un nouveau thread en lui présisent son nom
+	
+	Thread(Objet Runnable, String name) - Créer un nouveau thread en lui précisent le code a executer et son nom
+	
+Objet Runnable : Objet qui implemente l'interface Runnable et qui a une methode run()
+
+
+
+Méthode de la classe Thread :
+
+	.start() - appel la méthode run() du thread.
+	
+	.suspend() - permet de suspendre l'execution d'un thread.
+	
+	.resume() - permet de reprendre l'execution d'un thread mis en pause.
+	
+	
+	
+On peut crée un Objet d'un classe implementant l'interface Runnable et composer d'une methode 
+run(). Par la suite on créé un objet de la classe Thread en lui passant dans le constructeur l'objet
+runnable. Puis on appel la méthode start() de l'objet Thread, cela va déclancher la méthode run().
+On peut mettre en pause le thread avec la methode suspend() et le reprendre avec la methode
+resume().
