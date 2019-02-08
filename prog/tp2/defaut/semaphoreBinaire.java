@@ -1,3 +1,4 @@
+package defaut;
 
 public final class semaphoreBinaire extends semaphore {
 public semaphoreBinaire(int valeurInitiale){

@@ -1,3 +1,4 @@
+package defaut;
 public abstract class semaphore {
 
     protected int valeur=0;
