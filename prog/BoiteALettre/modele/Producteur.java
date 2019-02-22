@@ -1,5 +1,7 @@
 package modele;
 
+import java.util.Scanner;
+
 public class Producteur extends Thread{
 
 	private String lettre;
@@ -11,7 +13,13 @@ public class Producteur extends Thread{
 	}
 
 	public void run(){
-		boite_a_lettre.deposer(lettre);
+		
+    	boolean fini = false;
+		System.out.println("Entrez votre texte :");
+        Scanner scanner = new Scanner(System.in);
 
+        while (!fini){
+        	fini = boite_a_lettre.deposer(scanner.next());
+        }
 	}
 }
