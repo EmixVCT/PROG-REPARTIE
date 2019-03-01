@@ -5,24 +5,25 @@ import modele.Consommateur;
 import modele.Producteur;
 
 public class TestBAL {
-
-	private int nbConsommateur = 5;
-	private int nbProducteur = 5;
-
 	
 	public static void main(String[] args) {
 		BAL boite_a_lettre = new BAL();
 		
-
-		Consommateur consommateur = new Consommateur(boite_a_lettre);
-		Producteur producteur = new Producteur(boite_a_lettre,"coucou !");
+		Consommateur Prod = new Consommateur(boite_a_lettre);;
+		Producteur Conso = new Producteur(boite_a_lettre,"msg");
 		
-		consommateur.start();
-		producteur.start();
+		Conso.start();
+		Prod.start();
 		
-		producteur.interrupt();
-		consommateur.interrupt();
+		/*
+		Conso.interrupt();
+		Prod.interrupt();
 		
+		try {
+			Conso.join();
+			Prod.join();
+		} catch (InterruptedException e) {}
+		*/
 	}
 
 }
