@@ -9,15 +9,18 @@ public class BAL {
 	private String buffer;
 	
 	private boolean plein;
-	
+	private boolean fini = false;
+	 
 	public BAL() {
 		buffer = "";
 		plein = false;
 	}
 
 	
-	public synchronized void retirer(){
+	public synchronized boolean retirer(){
 		//TQ la boite a lettre est vide attend
+		if (fini) return true;
+		
 		while(!plein){
 			try{
 				wait();
@@ -31,10 +34,14 @@ public class BAL {
 		plein = false;
 		notifyAll();
 		
+		return false;
 	}
 	
 	
-	public synchronized void deposer(String lettre){
+	public synchronized boolean deposer(String lettre){
+		
+		if (fini) return true;
+		
 		//TQ la boite a lettre est pleine attend
 		while(plein){
 			try{
@@ -48,5 +55,11 @@ public class BAL {
 
 		plein = true; //
 		notifyAll(); //envoie un signal 
+		
+
+        if (buffer.equals("q") || buffer.equals("Q") )
+        	fini = true;
+
+        return fini;
 	}
 }
