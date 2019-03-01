@@ -1,0 +1,38 @@
+Séance 4 - API concurrent
+
+L'API permet la simplification de la synchronisation des threads, elle implements plusieurs fonctionnalité dont :
+	1) Executor
+	2) Les files d'attentes
+	3) Opération atomique
+	4) Sémaphore
+
+Dans le TP nous avons utiliser la fonctionnalité de file d'attente.
+Nous avons repris le tp3 avec la boite a lettre et nous avons remplacer les threads par des objet implementant Runnable.
+
+Par la suite nous avons créé des threads avec la focntionnalité Executor de l'API concurrent:
+	Executor executor = new Executor()
+	executor.execute(new Runnable1());
+	executor.execute(new Runnable2());
+Cette fonctionnalier permet de gerer des pool (reserve de thread), lorsque on lance une tache avec execute() on la soumet
+au pool et elle choisie un thread disponible a notre place.
+
+ 
+Dans la classe BAL nous avons remplacer le buffer par une file d'attente de l'API Concurrent.
+La file d'attente viens de l'interface BlockingQueue qui utilise la généricité.
+On utilise la classe ArrayBlockingQueue qui implemente BlockingQueue,
+Sont constructeur :
+	BlockingQueue<Object> queue = new ArrayBlockingQueue<Object>(int taille)
+		prend en paramètre la taille de la file d'attente ( le nombre thread qui s'execute )
+
+Celle-ci possède différentes méthodes  :
+	put(E e) 	ajoute un Objet a la file d'attente. Attend si la file est pleine
+	offer(E e, long timeout, TimeUnit unit) ajoute un Objet a la file d'attente,avec un temps d'attente maximum si la file est pleine.
+
+	take() récupére un objet de la file d'attente, renvoie false si la file est vide
+	poll(long timeout, TimeUnit unit) récupére un objet de la file d'attente, renvoie false si la file est vide,avec un temps maximum d'attente si la file est vide.
+
+Dans cette exemple du TP, L'API concurrent nous a permis d'ajouter des thread et de gerer des sections critique
+sans nous occuper de la création des threads et de la mise en place de sémaphore.
+L'API permet la gestion des sections critique et des threads de manière simplifier cela permet 
+d'introduit de nouveaux concepts comme par exemple les Futures.
+	
